@@ -9,6 +9,14 @@ fi
 colmap_home="${colmap_home:-.}"
 colmap_bin="$colmap_home/colmap"
 
+mkdir -p "$colmap_home"
+
+if [[ ! -x "$colmap_bin" ]]; then
+  echo "Missing COLMAP executable: $colmap_bin" >&2
+  echo "Set colmap_home in ~/.colmap.env to the directory containing colmap." >&2
+  exit 1
+fi
+
 if [[ $# -lt 1 || $# -gt 2 ]]; then
   echo "Usage: $0 /c/path/to/dataset [/c/path/to/dataset/images]" >&2
   exit 1
