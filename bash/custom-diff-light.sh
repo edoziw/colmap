@@ -7,7 +7,7 @@ if [[ -f "$HOME/.colmap.env" ]]; then
 fi
 
 colmap_home="${colmap_home:-.}"
-colmap_bin="$colmap_home/colmap"
+colmap_bin="$colmap_home/bin/colmap"
 
 if [[ $# -lt 1 || $# -gt 2 ]]; then
   echo "Usage: $0 /c/path/to/dataset [/c/path/to/dataset/images]" >&2
@@ -16,7 +16,7 @@ fi
 
 if [[ ! -x "$colmap_bin" ]]; then
   echo "Missing COLMAP executable: $colmap_bin" >&2
-  echo "Set colmap_home in ~/.colmap.env to the directory containing colmap." >&2
+  echo "Set colmap_home in ~/.colmap.env to the COLMAP install directory." >&2
   exit 1
 fi
 
